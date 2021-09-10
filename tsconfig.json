@@ -25,6 +25,7 @@
   ],
   "baseUrl": ".",
   "paths": {
+    "api/*": ["./src/api/*"],
     "models/*": [ "./src/models/*" ],
     "pages/*": ["./src/pages/*"],
     "store/*": ["./src/store/*"],

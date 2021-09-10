@@ -3,10 +3,12 @@ import { Layout, Row, Menu } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { RouteNames } from '../routes';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useActions } from '../hooks/useActions';
 
 const Navbar: FC = () => {
   const router = useHistory();
-  const { isAuth } = useTypedSelector(state => state.auth);
+  const { isAuth, user } = useTypedSelector(state => state.auth);
+  const { logout } = useActions();
 
   return (
     <Layout.Header>
@@ -15,11 +17,11 @@ const Navbar: FC = () => {
             ?
               <>
                 <div style={{color: 'white'}}>
-                  username
+                  {user.username}
                 </div>
                 <Menu theme="dark" mode="horizontal" selectable={false}>
                   <Menu.Item
-                    onClick={() => console.log('logout successful')}
+                    onClick={logout}
                     key={1}
                   >
                     Logout
